@@ -12,23 +12,20 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['middleware' => ['web']], function () {
-    Route::post('login','Auth\LoginController@login');  
-    Route::post('register','Auth\RegisterController@register');  
-    Route::post('logout','Auth\LoginController@logout');
-    Route::post('password/email','Auth\ForgotPasswordController@sendResetLinkEmail'); 
-    Route::post('password/reset','Auth\ResetPasswordController@reset');
-       
+
+Route::group(['prefix' => 'password'],function() {
+	Route::post('/email', 'Auth\ForgotPasswordController@getResetToken');
+	Route::post('/reset', 'Auth\ResetPasswordController@reset');
 });
 
-/*
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix'=> 'auth'],function(){
+    Route::post('/register','Auth\RegisterController@register');
+    Route::post("/login",'Auth\LoginController@login');
+    Route::post('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|');
 });
 
-Route::group(['middleware' => 'cors', 'prefix' => '/v1'], function () {
-    Route::post('/login', 'Api\UserController@authenticate');
-    Route::post('/register', 'Api\UserController@register');
-    Route::get('/logout/{api_token}', 'Api\UserController@logout');
+Route::middleware(['jwt_auth'])->group(function(){
+   Route::get('/hello',function(){
+       return "Cool dude";
+   });
 });
-*/
