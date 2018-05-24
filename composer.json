@@ -6,9 +6,9 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
-        "barryvdh/laravel-cors": "^0.11.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
         "tymon/jwt-auth": "^0.5.12"
     },
@@ -16,7 +16,6 @@
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
