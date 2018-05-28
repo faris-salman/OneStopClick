@@ -54,26 +54,26 @@ class Page extends React.Component {
                         <Responsive minWidth={769}>
                             <Header
                                 as="h2"
-                                content="Something Cool"
+                                content="Welcome to"
                                 inverted
                                 className="pretitle"
                             />
                         </Responsive>
                         <Header
                             as='h1'
-                            content='Tagline Here'
+                            content='One Stop Click'
                             inverted
                             className="main-heading"
                         />
                         <Header
                             as='p'
-                            content='sub heading'
+                            content='Laravel 5.6 ReactJS 16.4 Application'
                             inverted
                             className="sub-heading"
                         />
-                        <Button color="teal" size='huge' className="free-signup-button">
+                        {/* <Button color="teal" size='huge' className="free-signup-button">
                             <Link to='/register' replace>Register</Link>
-                        </Button>
+                        </Button> */}
                     </Container>
                 </Segment>
                 <div className="course-tour">

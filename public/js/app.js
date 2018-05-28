@@ -52088,32 +52088,23 @@ var Page = function (_React$Component) {
                             { minWidth: 769 },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
                                 as: 'h2',
-                                content: 'Something Cool',
+                                content: 'Welcome to',
                                 inverted: true,
                                 className: 'pretitle'
                             })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
                             as: 'h1',
-                            content: 'Tagline Here',
+                            content: 'One Stop Click',
                             inverted: true,
                             className: 'main-heading'
                         }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
                             as: 'p',
-                            content: 'sub heading',
+                            content: 'Laravel 5.6 ReactJS 16.4 Application',
                             inverted: true,
                             className: 'sub-heading'
-                        }),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
-                            { color: 'teal', size: 'huge', className: 'free-signup-button' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-                                { to: '/register', replace: true },
-                                'Register'
-                            )
-                        )
+                        })
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -73236,7 +73227,7 @@ var Footer = function (_React$Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
                                     { as: 'h5', inverted: true },
-                                    'Sample footer @ 2017'
+                                    'One Stop Click @ 2018'
                                 )
                             )
                         )
