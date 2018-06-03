@@ -78,7 +78,7 @@ class Page extends React.Component {
                 </Segment>
                 <div className="course-tour">
                     <Container textAlign="center" style={{padding: '2em 0em'}}>
-                        <Header as="h3" content="About your company"/>
+                        <Header as="h3" content="About OneStopClick"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </Container>
                     <Container className="step-container">
