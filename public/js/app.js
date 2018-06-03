@@ -761,7 +761,7 @@ module.exports = isObjectLike;
 /* 19 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.5.6' };
+var core = module.exports = { version: '2.5.7' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -77847,7 +77847,7 @@ var Page = function (_React$Component) {
 
         _this.validator = new __WEBPACK_IMPORTED_MODULE_4_ree_validate__["a" /* default */]({
             password: 'required|min:6',
-            password_confirmation: 'required|min:6|confirmed:password',
+            //password_confirmation: 'required|min:6|confirmed:password',
             token: 'required',
             email: 'required'
         });

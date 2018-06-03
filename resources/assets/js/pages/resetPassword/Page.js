@@ -11,7 +11,7 @@ class Page extends React.Component {
         super(props);
         this.validator = new ReeValidate({
             password: 'required|min:6',
-            password_confirmation: 'required|min:6|confirmed:password',
+            //password_confirmation: 'required|min:6|confirmed:password',
             token: 'required',
             email: 'required'
         });
