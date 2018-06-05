@@ -29,3 +29,47 @@ Route::middleware(['jwt_auth'])->group(function(){
        return "Cool dude";
    });
 });
+
+Route::group(['prefix' => 'products'], function(){
+
+    /**
+    **Basic Routes for a RESTful service:
+    **Route::get($uri, $callback);
+    **Route::post($uri, $callback);
+    **Route::put($uri, $callback);
+    **Route::delete($uri, $callback);
+    **
+    */
+    Route::get('/', 'ProductsController@index');
+ 
+    Route::get('/{product}', 'ProductsController@show');
+    
+    Route::post('/','ProductsController@store');
+    
+    Route::put('/{product}','ProductsController@update');
+    
+    Route::delete('/{product}', 'ProductsController@delete');
+
+});
+
+Route::group(['prefix' => 'categories'], function(){
+
+    /**
+    **Basic Routes for a RESTful service:
+    **Route::get($uri, $callback);
+    **Route::post($uri, $callback);
+    **Route::put($uri, $callback);
+    **Route::delete($uri, $callback);
+    **
+    */
+    Route::get('/', 'CategoriesController@index');
+ 
+    Route::get('/{category}', 'CategoriesController@show');
+    
+    Route::post('/','CategoriesController@store');
+    
+    Route::put('/{category}','CategoriesController@update');
+    
+    Route::delete('/{category}', 'CategoriesController@delete');
+
+});
