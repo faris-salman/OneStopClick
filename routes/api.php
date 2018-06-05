@@ -29,3 +29,53 @@ Route::middleware(['jwt_auth'])->group(function(){
        return "Cool dude";
    });
 });
+
+Route::group(['prefix' => 'products'], function(){
+
+    /**
+    **Basic Routes for a RESTful service:
+    **Route::get($uri, $callback);
+    **Route::post($uri, $callback);
+    **Route::put($uri, $callback);
+    **Route::delete($uri, $callback);
+    **
+    */
+    Route::get('/', 'Api\ProductsController@index');
+ 
+    Route::get('/{product}', 'Api\ProductsController@show');
+    
+    Route::post('/','Api\ProductsController@store');
+    
+    Route::put('/{product}','Api\ProductsController@update');
+    
+    Route::delete('/{product}', 'Api\ProductsController@delete');
+
+});
+
+Route::group(['prefix' => 'categories'], function(){
+
+    Route::get('/', 'Api\CategoriesController@index');
+ 
+    Route::get('/{category}', 'Api\CategoriesController@show');
+    
+    Route::post('/','Api\CategoriesController@store');
+    
+    Route::put('/{category}','Api\CategoriesController@update');
+    
+    Route::delete('/{category}', 'Api\CategoriesController@delete');
+
+});
+
+Route::group(['prefix' => 'owners'], function(){
+
+    Route::get('/', 'Api\OwnersController@index');
+ 
+    Route::get('/{owner}', 'Api\OwnersController@show');
+    
+    Route::post('/','Api\OwnersController@store');
+    
+    Route::put('/{owner}','Api\OwnersController@update');
+    
+    Route::delete('/{owner}', 'Api\OwnersController@delete');
+
+});
