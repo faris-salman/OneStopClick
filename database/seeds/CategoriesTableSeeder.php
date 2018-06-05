@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class CategoriesTableSeeder extends Seeder
@@ -12,13 +13,13 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = \Faker\Factory::create();
- 
-        // Create 10 category records
-        for ($i = 0; $i < 10; $i++) {
-            Category::create([
-                'name' => $faker->lastName
-            ]);
-        }
+        $now = Carbon::now()->toDateTimeString();
+
+        Category::insert([
+            ['name' => 'Movie', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Music', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Game', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Anime', 'created_at' => $now, 'updated_at' => $now],
+        ]);
     }
 }
