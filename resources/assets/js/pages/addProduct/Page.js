@@ -10,7 +10,6 @@ import {
     Step
 } from 'semantic-ui-react'
 import PageHeader from '../../common/pageHeader'
-import {Link, Redirect} from 'react-router-dom'
 
 class Page extends React.Component {
     constructor(props) {
@@ -20,10 +19,9 @@ class Page extends React.Component {
     render() {
         return (
             <div>
-                <PageHeader heading="Dashboard"/>
+                <PageHeader heading="Add New Product"/>
                 <Segment vertical textAlign='center' style={{minHeight: '100vh'}}>
-                    <Header as='h1'>Dashboard</Header>
-                    <Link to='/addProduct' replace>Add New Product</Link>
+                    <Header as='h1'>Add New Product</Header>
                 </Segment>                
             </div>
         );
