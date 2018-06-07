@@ -78,31 +78,96 @@ class Page extends React.Component {
                 </Segment>
                 <div className="course-tour">
                     <Container textAlign="center" style={{padding: '2em 0em'}}>
-                        <Header as="h3" content="About OneStopClick"/>
+                        <Header as="h3" content="OneStopClick Market"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </Container>
                     <Container className="step-container">
-                        <Responsive minWidth={992}>
-                            <Grid columns={1} padded="horizontally">
+                        <Responsive minWidth={100}>
+                            <Grid columns={5} padded="horizontally">
                                 <Grid.Row>
                                     <Grid.Column>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae
-                                            ducimus eius eos fugit ipsam, nemo rem repellendus suscipit unde? Aliquam
-                                            aliquid consequatur consequuntur deleniti nisi quos, ratione repudiandae
-                                            sint!
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
+                                        <img src="https://dummyimage.com/300x300/5e3ad6/fff" alt="dummy"/>
+                                        <h5>Product 1</h5>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
                                             dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
                                             obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum
-                                            dicta dolores
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3aaa/fff" alt="dummy"/>
+                                        <h5>Product 2</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
                                             dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
                                             obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
                                             veritatis!</p>
-
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3abb/fff" alt="dummy"/>
+                                        <h5>Product 3</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3acc/fff" alt="dummy"/>
+                                        <h5>Product 4</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3add/fff" alt="dummy"/>
+                                        <h5>Product 5</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3aee/fff" alt="dummy"/>
+                                        <h5>Product 6</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3aff/fff" alt="dummy"/>
+                                        <h5>Product 7</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3a11/fff" alt="dummy"/>
+                                        <h5>Product 8</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3a22/fff" alt="dummy"/>
+                                        <h5>Product 9</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3a33/fff" alt="dummy"/>
+                                        <h5>Product 10</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
+                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
+                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
+                                            veritatis!</p>
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <img src="https://dummyimage.com/300x300/5e3a44/fff" alt="dummy"/>
+                                        <h5>Product 11</h5>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
                                             dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
                                             obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
