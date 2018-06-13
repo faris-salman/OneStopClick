@@ -29,3 +29,5 @@ Route::middleware(['jwt_auth'])->group(function(){
        return "Cool dude";
    });
 });
+
+Route::resource('products', 'Api\ProductController');

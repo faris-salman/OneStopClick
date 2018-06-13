@@ -11,11 +11,29 @@ import {
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import AuthService from '../../services'
+import axios from 'axios';
 
 class Page extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            data: []
+        }
     }
+
+    
+    componentWillMount() {
+        let $this = this;
+
+        axios.get('/api/products').then(response => {
+            $this.setState({
+                data: response.data
+            })
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+    
 
     componentDidMount() {
         const social = this.props.match.params.social
@@ -85,94 +103,16 @@ class Page extends React.Component {
                         <Responsive minWidth={100}>
                             <Grid columns={5} padded="horizontally">
                                 <Grid.Row>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3ad6/fff" alt="dummy"/>
-                                        <h5>Product 1</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3aaa/fff" alt="dummy"/>
-                                        <h5>Product 2</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3abb/fff" alt="dummy"/>
-                                        <h5>Product 3</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3acc/fff" alt="dummy"/>
-                                        <h5>Product 4</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3add/fff" alt="dummy"/>
-                                        <h5>Product 5</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3aee/fff" alt="dummy"/>
-                                        <h5>Product 6</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3aff/fff" alt="dummy"/>
-                                        <h5>Product 7</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3a11/fff" alt="dummy"/>
-                                        <h5>Product 8</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3a22/fff" alt="dummy"/>
-                                        <h5>Product 9</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3a33/fff" alt="dummy"/>
-                                        <h5>Product 10</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <img src="https://dummyimage.com/300x300/5e3a44/fff" alt="dummy"/>
-                                        <h5>Product 11</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
+                                    {this.state.data.map((product, i) => (
+                                        <Grid.Column>
+                                            <img src="https://dummyimage.com/200x200/5e3ad6/fff" alt="dummy"/>
+                                            <h3>{product.name}</h3>
+                                            <p>{product.details}</p>
+                                            <p>{product.description}</p>
+                                            <h5>Price : {product.price}</h5>
+                                        </Grid.Column> 
+                                        )
+                                    )}
                                 </Grid.Row>
                             </Grid>
                         </Responsive>
