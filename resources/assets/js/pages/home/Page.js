@@ -108,8 +108,8 @@ class Page extends React.Component {
                                             <img src="https://dummyimage.com/200x200/5e3ad6/fff" alt="dummy"/>
                                             <h3>{product.name}</h3>
                                             <p>{product.details}</p>
-                                            <p>{product.description}</p>
                                             <h5>Price : {product.price}</h5>
+                                            <p>&nbsp;</p>
                                         </Grid.Column> 
                                         )
                                     )}

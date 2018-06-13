@@ -137,7 +137,7 @@ export function register(credentials) {
 export function addProduct(products) {
     return dispatch => (
         new Promise((resolve, reject) => {
-            Http.post('api/product', credentials)
+            Http.post('api/products', products)
                 .then(res => {
                     return resolve(res.data);
                 })

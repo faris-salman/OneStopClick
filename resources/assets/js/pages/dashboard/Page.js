@@ -35,7 +35,7 @@ class Page extends React.Component {
                                             </Link>
                                         </Grid.Column>
                                         <Grid.Column>
-                                            <Link to='/addProduct' replace>
+                                            <Link to='/listProduct' replace>
                                                 <img src="https://dummyimage.com/200x200/13cfff/030b85&text=Your+Product+List" alt="dummy"/>
                                             </Link>
                                         </Grid.Column>

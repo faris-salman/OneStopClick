@@ -11,12 +11,14 @@ class Page extends React.Component {
         super(props);
         this.validator = new ReeValidate({
             name: 'required|min:3',
+            details: 'required|min:10',
             description: 'required|min:10',
             price: 'required|decimal'
         });
         this.state = {
             products: {
                 name: '',
+                details: '',
                 description: '',
                 price: '',
                 promoted: false
@@ -49,7 +51,7 @@ class Page extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
+        console.log(this.state);
         const {products} = this.state;
 
         this.validator.validateAll(products)
@@ -119,7 +121,7 @@ class Page extends React.Component {
                         </Message>}
                         {this.state.isSuccess && <Message positive>
                             <Message.Content>
-                                Product is Successfully Added ! Go to <Link to='/dashboard' replace>Dashboard</Link>
+                                Product is Successfully Added ! Go to <Link to='/listProduct' replace>Product List</Link>
                             </Message.Content>
                         </Message>}
                         <Form size='large'>
@@ -138,6 +140,20 @@ class Page extends React.Component {
                                         {errors.first('name')}
                                     </Header>}
                                 </Form.Group>
+                                <Form.Group widths='equal'>
+                                    <Form.Input
+                                        fluid
+                                        icon='edit'
+                                        iconPosition='left'
+                                        label='Details'
+                                        name='details'
+                                        placeholder='Details'
+                                        onChange={this.handleChange}
+                                    />
+                                    {errors.has('details') && <Header size='tiny' className='custom-error' color='red'>
+                                        {errors.first('details')}
+                                    </Header>}
+                                </Form.Group>
                                 <Form.TextArea
                                     label='Description' 
                                     name='description'
@@ -147,6 +163,20 @@ class Page extends React.Component {
                                 {errors.has('description') && <Header size='tiny' className='custom-error' color='red'>
                                     {errors.first('description')}
                                 </Header>}
+                                <Form.Group widths='equal'>
+                                    <Form.Input
+                                        fluid
+                                        icon='edit'
+                                        iconPosition='left'
+                                        label='Price'
+                                        name='price'
+                                        placeholder='Price'
+                                        onChange={this.handleChange}
+                                    />
+                                    {errors.has('price') && <Header size='tiny' className='custom-error' color='red'>
+                                        {errors.first('price')}
+                                    </Header>}
+                                </Form.Group>
                                 <Form.Checkbox
                                     label='Promoted Product'
                                     name='promoted' />

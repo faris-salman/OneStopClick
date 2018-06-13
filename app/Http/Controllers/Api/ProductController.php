@@ -38,7 +38,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+
+        $product->name = $request->get('name');
+        $product->details = $request->get('details');
+        $product->description = $request->get('description');
+        $product->price = $request->get('price');
+
+        $product->save();
+
+        return $product;
     }
 
     /**
@@ -81,8 +90,12 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->delete();
+
+        return response()->json('Product Deleted Succesfully');
     }
 }
