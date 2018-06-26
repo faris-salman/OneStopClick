@@ -11,11 +11,29 @@ import {
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import AuthService from '../../services'
+import axios from 'axios';
 
 class Page extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            data: []
+        }
     }
+
+    
+    componentWillMount() {
+        let $this = this;
+
+        axios.get('/api/products').then(response => {
+            $this.setState({
+                data: response.data
+            })
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+    
 
     componentDidMount() {
         const social = this.props.match.params.social
@@ -78,36 +96,23 @@ class Page extends React.Component {
                 </Segment>
                 <div className="course-tour">
                     <Container textAlign="center" style={{padding: '2em 0em'}}>
-                        <Header as="h3" content="About OneStopClick"/>
+                        <Header as="h3" content="OneStopClick Market"/>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </Container>
                     <Container className="step-container">
-                        <Responsive minWidth={992}>
-                            <Grid columns={1} padded="horizontally">
+                        <Responsive minWidth={100}>
+                            <Grid columns={5} padded="horizontally">
                                 <Grid.Row>
-                                    <Grid.Column>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae
-                                            ducimus eius eos fugit ipsam, nemo rem repellendus suscipit unde? Aliquam
-                                            aliquid consequatur consequuntur deleniti nisi quos, ratione repudiandae
-                                            sint!
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum
-                                            dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores
-                                            dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi
-                                            obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod
-                                            veritatis!</p>
-                                    </Grid.Column>
+                                    {this.state.data.map((product, i) => (
+                                        <Grid.Column key={i}>
+                                            <img src="https://dummyimage.com/200x200/5e3ad6/fff" alt="dummy"/>
+                                            <h3>{product.name}</h3>
+                                            <p>{product.details}</p>
+                                            <h5>Price : {product.price}</h5>
+                                            <p>&nbsp;</p>
+                                        </Grid.Column> 
+                                        )
+                                    )}
                                 </Grid.Row>
                             </Grid>
                         </Responsive>

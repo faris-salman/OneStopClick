@@ -133,3 +133,59 @@ export function register(credentials) {
         })
     )
 }
+
+export function addProduct(products) {
+    return dispatch => (
+        new Promise((resolve, reject) => {
+            Http.post('api/products', products)
+                .then(res => {
+                    return resolve(res.data);
+                })
+                .catch(err => {
+                    const statusCode = err.response.status;
+                    const data = {
+                        error: null,
+                        statusCode,
+                    };
+                    if (statusCode === 422) {
+                        Object.values(err.response.data.message).map((value,i) => {
+                            data.error = value
+                        });
+
+                    }else if (statusCode === 400) {
+                        data.error = err.response.data.message;
+                    }
+                    return reject(data);
+                })
+        })
+    )
+}
+
+export function editProduct(products) {
+    return dispatch => (
+        new Promise((resolve, reject) => {
+            Http.put('api/products/'+products.id, products)
+                .then(res => {
+                    console.log(res.data);
+                    return resolve(res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                    const statusCode = err.response.status;
+                    const data = {
+                        error: null,
+                        statusCode,
+                    };
+                    if (statusCode === 422) {
+                        Object.values(err.response.data.message).map((value,i) => {
+                            data.error = value
+                        });
+
+                    }else if (statusCode === 400) {
+                        data.error = err.response.data.message;
+                    }
+                    return reject(data);
+                })
+        })
+    )
+}

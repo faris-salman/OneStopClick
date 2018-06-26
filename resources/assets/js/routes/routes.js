@@ -4,6 +4,9 @@ import Register from '../pages/register'
 import ForgotPassword from '../pages/forgotPassword'
 import ResetPassword from '../pages/resetPassword'
 import Dashboard from '../pages/dashboard'
+import addProduct from '../pages/addProduct'
+import listProduct from '../pages/listProduct'
+import editProduct from '../pages/editProduct'
 import NoMatch from '../pages/noMatch'
 
 const routes = [
@@ -42,12 +45,30 @@ const routes = [
         exact: true,
         auth: false,
         component: ResetPassword
-    },
+    },    
     {
         path: '/dashboard',
         exact: true,
         auth: true,
         component: Dashboard
+    },
+    {
+        path: '/addProduct',
+        exact: true,
+        auth: true,
+        component: addProduct
+    },
+    {
+        path: '/listProduct',
+        exact: true,
+        auth: true,
+        component: listProduct
+    },
+    {
+        path: '/editProduct/:id',
+        exact: true,
+        auth: true,
+        component: editProduct
     },
     {
         path: '',
