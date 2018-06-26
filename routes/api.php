@@ -30,4 +30,12 @@ Route::middleware(['jwt_auth'])->group(function(){
    });
 });
 
-Route::resource('products', 'Api\ProductController');
+//Route::resource('products', 'Api\ProductController');
+
+Route::group(['prefix' => 'products'],function() {
+    Route::get('/', 'Api\ProductController@index');
+    Route::get('/{id}', 'Api\ProductController@show');
+    Route::post('/', 'Api\ProductController@store');
+    Route::put('/{id}', 'Api\ProductController@update');
+    Route::delete('/{id}', 'Api\ProductController@destroy');
+});

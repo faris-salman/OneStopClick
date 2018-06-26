@@ -56,9 +56,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+
+        return response()->json($product);
     }
 
     /**
@@ -79,9 +81,21 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        // $product->update($request->all());
+ 
+        // return response()->json($product, 200);
+
+        try{
+            //dd($request);
+            $product = Product::findOrFail($id);
+            $product->update($request->all());    
+            return response()->json($product, 200);
+
+        }catch(Exception $e){
+            return response()->json('Error saving category');
+        }
     }
 
     /**

@@ -27,22 +27,7 @@ class Page extends React.Component {
         })
     }
 
-    deleteProduct(product){
-        console.log(product);
-
-        var $this = this;
-        axios.delete('/api/products/'+product.id).then(response => {
-            console.log(response)
-
-            const newState = $this.state.data.slice();
-            newState.splice(newState.indexOf(product), 1)
-            $this.setState({
-                data: newState
-            })
-        }).catch(error => {
-            console.log(error)
-        })
-    }
+    
     
 
     render() {
@@ -52,7 +37,7 @@ class Page extends React.Component {
                 <PageHeader heading="List Product"/>
                 <Segment className='page-loader' style={{display: this.state.isLoading ? 'block' : 'none'}}>
                     <Dimmer active inverted>
-                        <Loader size='large'>Adding...</Loader>
+                        <Loader size='large'>Updating...</Loader>
                     </Dimmer>
                 </Segment>
 
@@ -88,20 +73,7 @@ class Page extends React.Component {
 
                             <Table.Body>
                             {this.state.data.map((product, i) => (
-                                <Table.Row key={i}>
-                                    <Table.Cell>{product.name}</Table.Cell>
-                                    <Table.Cell>{product.details}</Table.Cell>
-                                    <Table.Cell>{product.description}</Table.Cell>
-                                    <Table.Cell>{product.price}</Table.Cell>
-                                    <Table.Cell>
-                                        <Button floated='right' icon labelPosition='left' basic color='blue' size='small'>
-                                            <Icon name='edit' /> Edit Product
-                                        </Button>
-                                        <Button onClick={this.deleteProduct.bind(this, product)} floated='right' icon labelPosition='left' basic color='red' size='small'>
-                                            <Icon name='delete' /> Delete Product
-                                        </Button>
-                                    </Table.Cell>
-                                </Table.Row>
+                                    <ProductRow key={i} i={i} product={product} object={this}/>                                
                                 )
                             )}
                             </Table.Body>
@@ -125,6 +97,46 @@ class Page extends React.Component {
                     </Grid.Column>
                 </Grid>
             </div>
+        );
+    }
+}
+
+class ProductRow extends React.Component {
+    deleteProduct(product, object){
+        console.log(product);
+
+        var $this = object;
+        axios.delete('/api/products/'+product.id).then(response => {
+            console.log(response)
+
+            const newState = $this.state.data.slice();
+            newState.splice(newState.indexOf(product), 1)
+            $this.setState({
+                data: newState
+            })
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+    render(){
+        return(
+            <Table.Row key={this.props.i}>
+                <Table.Cell>{this.props.product.name}</Table.Cell>
+                <Table.Cell>{this.props.product.details}</Table.Cell>
+                <Table.Cell>{this.props.product.description}</Table.Cell>
+                <Table.Cell>{this.props.product.price}</Table.Cell>
+                <Table.Cell>
+                    <Link to={'/editProduct/'+this.props.product.id} replace>
+                        <Button floated='right' icon labelPosition='left' basic color='blue' size='small'>
+                            <Icon name='edit' /> Edit Product
+                        </Button>
+                    </Link>
+                    <Button onClick={this.deleteProduct.bind(this, this.props.product, this.props.object)} floated='right' icon labelPosition='left' basic color='red' size='small'>
+                        <Icon name='delete' /> Delete Product
+                    </Button>
+                </Table.Cell>
+            </Table.Row>
         );
     }
 }

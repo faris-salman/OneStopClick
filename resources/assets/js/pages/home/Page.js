@@ -104,7 +104,7 @@ class Page extends React.Component {
                             <Grid columns={5} padded="horizontally">
                                 <Grid.Row>
                                     {this.state.data.map((product, i) => (
-                                        <Grid.Column>
+                                        <Grid.Column key={i}>
                                             <img src="https://dummyimage.com/200x200/5e3ad6/fff" alt="dummy"/>
                                             <h3>{product.name}</h3>
                                             <p>{product.details}</p>
