@@ -63,63 +63,32 @@ class Page extends React.Component {
                     this.setState({
                         isLoading: true
                     });
-                    // this.submit(products);
-                    console.log('OK');
-                    console.log(products);
-                    axios.put(
-                        '/api/products/'+products.id,
-                        products,
-                        {headers: {"Accept": "application/json","Content-Type": "application/json"}}
-                    ).then(response => {
-                        this.setState({
-                            isLoading: false
-                        });
-                        this.setState({
-                            isSuccess: true,
-                        });
-                    }).catch(error => {
-                        console.log(error)
-                    })
+                    this.submit(products);
                 }
             });
     }
 
     submit(products) {
-        // axios.put(
-        //     '/api/products'+products.id,
-        //     products,
-        //     {headers: {"Accept": "application/json","Content-Type": "application/json"}}
-        // ).then(response => {
-        //     this.setState({
-        //         isLoading: false
-        //     });
-        //     this.setState({
-        //         isSuccess: true,
-        //     });
-        // }).catch(error => {
-        //     console.log(error)
-        // })
-
-        // this.props.dispatch(AuthService.editProduct(products))
-        //     .then((result)  => {
-        //         this.setState({
-        //             isLoading: false
-        //         });
-        //         this.setState({
-        //             isSuccess: true,
-        //         });
-        //     })
-        //     .catch(({error, statusCode}) => {
-        //         const responseError = {
-        //             isError: true,
-        //             code: statusCode,
-        //             text: error
-        //         };
-        //         this.setState({responseError});
-        //         this.setState({
-        //             isLoading: false
-        //         });
-        //     })
+        this.props.dispatch(AuthService.editProduct(products))
+            .then((result)  => {
+                this.setState({
+                    isLoading: false
+                });
+                this.setState({
+                    isSuccess: true,
+                });
+            })
+            .catch(({error, statusCode}) => {
+                const responseError = {
+                    isError: true,
+                    code: statusCode,
+                    text: error
+                };
+                this.setState({responseError});
+                this.setState({
+                    isLoading: false
+                });
+            })
     }
     
     componentWillMount() {
