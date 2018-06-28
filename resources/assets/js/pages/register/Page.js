@@ -13,7 +13,7 @@ class Page extends React.Component {
             name: 'required|min:3',
             email: 'required|email',
             password: 'required|min:6',
-            password_confirmation: 'required|min:6|confirmed:password'
+            password_confirmation: 'required|min:6'
         });
         this.state = {
             credentials: {
