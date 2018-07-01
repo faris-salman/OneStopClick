@@ -12,7 +12,7 @@ class Page extends React.Component {
         super(props);
         this.state = {
             data: [],
-            url: '/api/products/paged',
+            url: '/api/products/pagedOwner/'+localStorage.getItem('u'),
             pagination: []
         }
     }
