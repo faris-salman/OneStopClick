@@ -34,6 +34,7 @@ Route::middleware(['jwt_auth'])->group(function(){
 
 Route::group(['prefix' => 'products'],function() {
     Route::get('/', 'Api\ProductController@index');
+    Route::get('/paged', 'Api\ProductController@pagedIndex');
     Route::get('/{id}', 'Api\ProductController@show');
     Route::post('/', 'Api\ProductController@store');
     Route::put('/{id}', 'Api\ProductController@update');
