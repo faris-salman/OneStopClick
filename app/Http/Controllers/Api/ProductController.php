@@ -20,6 +20,13 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    public function pagedIndex()
+    {
+        $products = Product::orderBy("id", "DESC")->paginate(5);
+
+        return response()->json($products);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

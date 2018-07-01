@@ -124,6 +124,7 @@ class Page extends React.Component {
                                 Product is Successfully Added ! Go to <Link to='/listProduct' replace>Product List</Link>
                             </Message.Content>
                         </Message>}
+                        {!this.state.isSuccess &&
                         <Form size='large'>
                             <Segment stacked>
                                 <Form.Group widths='equal'>
@@ -177,12 +178,12 @@ class Page extends React.Component {
                                         {errors.first('price')}
                                     </Header>}
                                 </Form.Group>
-                                <Form.Checkbox
+                                {/* <Form.Checkbox
                                     label='Promoted Product'
-                                    name='promoted' />
+                                    name='promoted' /> */}
                                 <Button color='teal' fluid size='large' onClick={this.handleSubmit}>Add</Button>
                             </Segment>
-                        </Form>
+                        </Form>}
                     </Grid.Column>
                 </Grid>
             </div>

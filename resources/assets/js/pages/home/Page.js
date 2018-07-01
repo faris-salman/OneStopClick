@@ -17,23 +17,53 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            url: '/api/products/paged',
+            pagination: []
         }
     }
 
     
     componentWillMount() {
+        this.fetchProducts()
+    }
+
+    fetchProducts(){
         let $this = this;
 
-        axios.get('/api/products').then(response => {
+        axios.get(this.state.url).then(response => {
             $this.setState({
-                data: response.data
+                data: $this.state.data.length > 0 ? $this.state.data.concat(response.data.data) : response.data.data,
+                url: response.data.next_page_url
             })
+
+            $this.makePagination(response.data)
         }).catch(error => {
             console.log(error)
         })
     }
+
+    loadMore(){
+        console.log(this.state.pagination.next_page_url)
+        this.setState({
+            url: this.state.pagination.next_page_url
+        })
+
+        this.fetchProducts()
+    }
     
+    makePagination(data){
+        let pagination = {
+            current_page: data.current_page,
+            last_page: data.last_page,
+            next_page_url: data.next_page_url,
+            prev_page_url: data.prev_page_url
+        }
+
+        this.setState({
+            pagination: pagination
+        })
+    }
 
     componentDidMount() {
         const social = this.props.match.params.social
@@ -116,6 +146,9 @@ class Page extends React.Component {
                                 </Grid.Row>
                             </Grid>
                         </Responsive>
+                        <Button icon labelPosition='left' primary size='small' onClick={this.loadMore.bind(this)}>
+                            <Icon name='angle double down' /> Load More
+                        </Button>
                     </Container>
                 </div>
             </div>
