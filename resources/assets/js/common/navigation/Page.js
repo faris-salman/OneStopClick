@@ -70,10 +70,7 @@ class Page extends React.Component {
                             className="navbar" minWidth={769}>
                     <Menu inverted pointing secondary size='large'>
                         <Container>
-                            <Menu.Item as={Link} to="/" className="logo" replace>
-                            {/* <img
-                                src={require('../../../images/theme/infotiq-logo.png')} alt="infoTiq"/> */}
-                                </Menu.Item>
+                            <Menu.Item as={Link} to="/">Home</Menu.Item>
                             <Menu.Item as={NavLink} to="/dashboard">Dashboard</Menu.Item>
                             <Menu.Menu position='right'>
                                 {this.props.isAuthenticated

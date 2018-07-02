@@ -11,20 +11,78 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            url: '/api/products/pagedOwner/'+localStorage.getItem('u'),
+            pagination: []
         }
     }
     
     componentWillMount() {
-        let $this = this;
+        this.fetchProducts(this.state.url)
+    }
 
-        axios.get('/api/products').then(response => {
+    fetchProducts(url){
+        let $this = this;
+        
+        axios.get(url).then(response => {
             $this.setState({
-                data: response.data
+                data: response.data.data
             })
+            
+            $this.makePagination(response.data)
         }).catch(error => {
             console.log(error)
         })
+    }
+
+    firstPage(){
+        this.setState({
+            url: this.state.pagination.first_page_url
+        })
+
+        this.fetchProducts(this.state.pagination.first_page_url)
+    }
+
+    lastPage(){
+        this.setState({
+            url: this.state.pagination.last_page_url
+        })
+
+        this.fetchProducts(this.state.pagination.last_page_url)
+    }
+
+    nextPage(){
+        this.setState({
+            url: this.state.pagination.next_page_url
+        })
+
+        this.fetchProducts(this.state.pagination.next_page_url)
+    }
+
+    prevPage(){
+        this.setState({
+            url: this.state.pagination.prev_page_url
+        })
+
+        this.fetchProducts(this.state.pagination.prev_page_url)
+    }
+    
+    makePagination(data){
+        
+        let pagination = {
+            current_page: data.current_page,
+            last_page: data.last_page,
+            first_page_url: data.first_page_url,
+            last_page_url: data.last_page_url,
+            next_page_url: data.next_page_url,
+            prev_page_url: data.prev_page_url
+        }
+
+        this.setState({
+            pagination: pagination
+        })
+
+        console.log(this.state.pagination)
     }
 
     
@@ -86,7 +144,18 @@ class Page extends React.Component {
                                         <Icon name='plus square' /> Add Product
                                     </Button>
                                 </Link>
-                                <Button size='small' basic color='green'>Load More</Button>
+                                <Button icon labelPosition='left' basic color='green' size='small' onClick={this.firstPage.bind(this)}>
+                                    <Icon name='angle double left' />First
+                                </Button>
+                                <Button icon labelPosition='left' basic color='yellow' size='small' onClick={this.prevPage.bind(this)}>
+                                    <Icon name='angle left' />Prev
+                                </Button>
+                                <Button icon labelPosition='left' basic color='yellow' size='small' onClick={this.nextPage.bind(this)}>
+                                    <Icon name='angle right' />Next
+                                </Button>
+                                <Button icon labelPosition='left' basic color='green' size='small' onClick={this.lastPage.bind(this)}>
+                                    <Icon name='angle double right' />Last
+                                </Button>
                                 {/* <Button disabled size='small'>
                                     Delete All
                                 </Button> */}
