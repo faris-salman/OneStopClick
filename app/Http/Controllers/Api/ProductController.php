@@ -27,6 +27,13 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    public function pagedIndexByOwner($owner)
+    {
+        $products = Product::where('owner', $owner)->orderBy("id", "DESC")->paginate(5);
+
+        return response()->json($products);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -51,6 +58,7 @@ class ProductController extends Controller
         $product->details = $request->get('details');
         $product->description = $request->get('description');
         $product->price = $request->get('price');
+        $product->owner = $request->get('owner');
 
         $product->save();
 

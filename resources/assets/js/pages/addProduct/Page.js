@@ -21,7 +21,8 @@ class Page extends React.Component {
                 details: '',
                 description: '',
                 price: '',
-                promoted: false
+                promoted: false,
+                owner: localStorage.getItem('u')
             },
             responseError: {
                 isError: false,
@@ -181,6 +182,7 @@ class Page extends React.Component {
                                 {/* <Form.Checkbox
                                     label='Promoted Product'
                                     name='promoted' /> */}
+                                <input type="hidden" name="owner" value={localStorage.getItem('u')} />
                                 <Button color='teal' fluid size='large' onClick={this.handleSubmit}>Add</Button>
                             </Segment>
                         </Form>}
